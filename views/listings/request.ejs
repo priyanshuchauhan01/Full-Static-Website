@@ -1,0 +1,36 @@
+<% layout("layouts/boilerplate") %>
+<body>
+    <div class="session">
+        <form action="/login" method="post" class="needs-validation" novalidate>
+        <div class="requestbook">
+            <b><h2 style="margin-top: 3rem;">Request to book</h2></b>
+            <div class="yourtrip">
+                <h3 style="margin-top: 2rem;">Your trip</h3>
+                <b><p style="margin-top: 2rem;">Dates</p></b>
+                <b><p style="margin-top: 2rem;">Guest</p></b>
+            </div>
+            <hr>
+            <h3 style="margin-top: 1.5rem;">Log in or sign up to book</h3>
+            <div class="card booklogin" style="width: 30rem; margin: 4rem ;">
+                <label for="username" class="form-label"></label>
+                <input type="text" placeholder="Username" id="username" name="username" class="form-control" required>
+                <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Enter the username</div>
+                <input type="password" placeholder="Password" id="password" name="password" class="form-control" required>
+                <div class="invalid-feedback">Enter the Password</div>
+            </div>
+            <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-danger btn-lg signin" style="margin-bottom: 1rem;">Continue</button>
+            </div>
+        </div>
+    </form>
+        <div class="card totaltax" style="width: 25rem;">
+            <img src="https://life.futuregenerali.in/media/zv2gjclo/tax-calculations-on-your-earnings.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Your Total</h5>
+              <hr style="margin-top: 4rem;">
+              <h6>Total (INR)</h6>
+          </div>
+          </div>
+    </div>
+</body>

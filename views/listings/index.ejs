@@ -1,0 +1,51 @@
+<% layout("layouts/boilerplate") %>
+<body>
+    <div class="go-icons mt-3">
+        <div class="filter"><i class="fa-solid fa-umbrella-beach"></i><p>Beach</p></div>
+        <div class="filter"><i class="fa-brands fa-galactic-republic"></i><p>Arctic</p></div>
+        <div class="filter"><i class="fa-solid fa-hospital"></i><p>Building</p></div>
+        <div class="filter"><i class="fa-solid fa-water"></i><p>River</p></div>
+        <div class="filter"><i class="fa-solid fa-ship"></i><p>Ship</p></div>
+        <div class="filter"><i class="fa-solid fa-tree"></i><p>Forest</p></div>
+        <div class="filter"><i class="fa-solid fa-building"></i><p>Laws</p></div>
+        <div class="filter"><i class="fa-solid fa-van-shuttle"></i><p>Van</p></div>
+        <div class="filter"><i class="fa-solid fa-mountain"></i><p>Mountain</p></div>
+        <div class="filter"><i class="fa-solid fa-place-of-worship"></i><p>Temple</p></div>
+        <div class="tax-toggle">
+            <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-layer-group"></i>Filters</button>
+            <div class="form-check form-switch">
+                <input class="form-check-input taxes" type="checkbox" role="switch" id="flexSwitchCheckChecked">
+               <label class="form-check-label" for="flexSwitchCheckChecked">Display total before taxes</label>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 justify-content-center" style="margin-top: 20px;">
+        <% for (let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card" style="width: 20rem;">
+                    <img src="<%= listing.image.url %>" class="card-img-top" alt="listing-img" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= listing.title %></b>
+                            <br>
+                            <%= listing.description %>
+                            <br>
+                            <b class="rupee-symbol" data-price="<%= listing.price %>">
+                                <% if (listing.price !== null && listing.price !== undefined) { %>
+                                    <% if (flexSwitchCheckChecked) { %>
+                                        ₹ <%= (listing.price * 1.18).toLocaleString("en-IN") %> /night (including 18% GST)
+                                    <% } else { %>
+                                        ₹ <%= listing.price.toLocaleString("en-IN") %> /night
+                                    <% } %>
+                                <% } else { %>
+                                    Price not available
+                                <% } %>
+                            </b>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</body>
