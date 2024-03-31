@@ -267,6 +267,12 @@ app.get("/requestbook", (req, res) => {
   res.render("listings/request.ejs"); 
 });
 
+if (process.env.NODE_ENV != "production") {
+  app.get('*', (req, res) => {
+    res.send('Hello, this is the wildcard route!');
+  });
+}
+
 // Error handler middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
