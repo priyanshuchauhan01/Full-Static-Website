@@ -21,7 +21,7 @@ const passport = require('passport');
 const {saveRedirectUrl ,isloggedIn,  isReviewsAuthor} = require("./middleware.js")
 const LocalStrategy = require('passport-local').Strategy;
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
